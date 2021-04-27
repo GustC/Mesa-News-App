@@ -13,6 +13,7 @@ class MesaNewsApp extends StatelessWidget {
       themeMode: ThemeMode.dark,
       theme: ThemeData(
         primaryColor: primaryColor,
+        fontFamily: "Roboto",        
         appBarTheme: AppBarTheme(
           color: primaryColor,
           centerTitle: true,
