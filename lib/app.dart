@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:mesa_news_app/constants/colors.dart';
+import 'package:mesa_news_app/routes.dart';
 import 'package:mesa_news_app/screens/wellcome/wellcome_page.dart';
 
 class MesaNewsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Mesa News',
       themeMode: ThemeMode.dark,
       theme: ThemeData(
@@ -29,6 +31,8 @@ class MesaNewsApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: WellcomePage(),
+      initialRoute: "wellcome/",
+      routes: appRoutes,
     );
   }
 }
