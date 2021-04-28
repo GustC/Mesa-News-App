@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:mesa_news_app/constants/colors.dart';
 
 class WellcomePage extends StatelessWidget {
@@ -34,7 +35,7 @@ class WellcomePage extends StatelessWidget {
                   Expanded(
                     child: OutlinedButton(
                       onPressed: (){
-
+                        Get.toNamed("singin/");
                       },                      
                       style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.white,
