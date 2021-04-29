@@ -17,6 +17,8 @@ dependencies:
   path_provider: ^2.0.1
   shared_preferences: ^2.0.5
   connectivity: ^3.0.3
+  webview_flutter: ^2.0.4
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

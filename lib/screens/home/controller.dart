@@ -10,7 +10,7 @@ class HomePageController extends GetxController{
   HomePageRepository _repository = HomePageRepository();
   Rx<Pagination> _pagination = Pagination(
     currentPage: 1,
-    perPage: 10,    
+    perPage: 20,    
   ).obs;
   RxList<News> _news = RxList<News>();
   RxBool _loading = true.obs;
