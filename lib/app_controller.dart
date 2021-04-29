@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:connectivity/connectivity.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -8,10 +11,22 @@ class AppController extends GetxController{
   RxString _token = "".obs;
   RxBool _isLogged = false.obs;
   RxBool _inLoading = true.obs;
+  RxBool _isConnected = true.obs;
+  StreamSubscription<ConnectivityResult> subscription;
+  
+
+  AppController(){
+    subscription = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+      _isConnected.value = ConnectivityResult.values[result.index] != ConnectivityResult.none;
+    });
+    Connectivity().checkConnectivity().then((result) => _isConnected.value = ConnectivityResult.values[result.index] != ConnectivityResult.none);
+    interval(_isConnected,(value)=>refresh(),time: Duration(seconds: 1));
+  }
 
   String get token => _token.value;
   bool get isLogged => _isLogged.value;
   bool get inLoading => _inLoading.value;
+  bool get isConnected => _isConnected.value;
 
   Future<bool> saveUserToken(String token) async{  
     try{
@@ -38,7 +53,13 @@ class AppController extends GetxController{
       _isLogged.value = true;
       Get.offAllNamed("home/");
     }
-    _inLoading.value = true;
+    _inLoading.value = false;
     refresh();
+  }
+
+  @override
+  void dispose() {
+    subscription.cancel();
+    super.dispose();
   }
 }
