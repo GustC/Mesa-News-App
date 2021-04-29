@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mesa_news_app/components/inputs/form_input.dart';
 import 'package:mesa_news_app/constants/colors.dart';
-import 'package:mesa_news_app/screens/singin/singin_controller.dart';
+import 'package:mesa_news_app/screens/singin/controller.dart';
 
 class SinginPage extends StatelessWidget {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -17,11 +17,11 @@ class SinginPage extends StatelessWidget {
         title: Text(
           "Entrar com e-mail",          
         ),
-        leading: IconButton(
+        leading: Obx(()=>IconButton(
           icon: Icon(Icons.close),
           color: Colors.white, 
-          onPressed: ()=>Get.back(),
-        ),
+          onPressed: _controller.inRequest ? null : ()=>Get.back(),
+        )),
       ),
       body: GetBuilder(
         init: _controller,
@@ -74,14 +74,14 @@ class SinginPage extends StatelessWidget {
                             width: double.maxFinite,
                             margin: EdgeInsets.symmetric(horizontal: 16,vertical: 25),
                             child: OutlinedButton(
-                              onPressed: (){
+                              onPressed: _controller.inRequest ? null : (){
                                 if(_formKey.currentState.validate()){
                                   _controller.submit();
                                 }
                               },                          
                               style: OutlinedButton.styleFrom(
                                 padding: EdgeInsets.symmetric(vertical: 20),   
-                                backgroundColor: primaryColor,                            
+                                backgroundColor: _controller.inRequest ? Colors.grey[400] : primaryColor,                                
                               ),
                               child: Text(
                                 "Login",
