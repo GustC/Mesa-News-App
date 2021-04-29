@@ -12,20 +12,24 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.1.4
   flutter_svg: ^0.22.0
+  dio: ^4.0.0
+  localstorage: ^4.0.0+1
+  path_provider: ^2.0.1
+  shared_preferences: ^2.0.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 flutter:
   assets:
-    - ./assets/images/
+    - assets/images/
   fonts:
     - family: Roboto
       fonts:
-        - asset: ./assets/fonts/Roboto/Roboto-Regular.ttf
-        - asset: ./assets/fonts/Roboto/Roboto-Italic.ttf
+        - asset: assets/fonts/Roboto/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto/Roboto-Italic.ttf
           style: italic
-        - asset: ./assets/fonts/Roboto/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto/Roboto-Bold.ttf
           weight: 700
   
   uses-material-design: true
