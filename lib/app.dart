@@ -14,10 +14,9 @@ class MesaNewsApp extends StatelessWidget {
     AppController _appController = Get.put(AppController());
     return GetMaterialApp(
       title: 'Mesa News',
-      themeMode: ThemeMode.dark,
       theme: ThemeData(
         primaryColor: primaryColor,
-        fontFamily: "Roboto12312",        
+        fontFamily: "Roboto",    
         appBarTheme: AppBarTheme(
           color: primaryColor,
           centerTitle: true,

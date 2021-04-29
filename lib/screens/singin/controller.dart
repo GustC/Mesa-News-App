@@ -31,7 +31,7 @@ class SinginController extends GetxController{
         SinginResponse singinResponse = SinginResponse.fromJson(response.data);
         bool saved = await _appController.saveUserToken(singinResponse.token);
         if(saved){
-          Get.offAllNamed("home/");
+          _appController.checkUser();
         } else {
           Messages.error();
         }

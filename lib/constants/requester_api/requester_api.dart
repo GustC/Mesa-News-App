@@ -1,13 +1,17 @@
 import 'package:dio/dio.dart';
+import 'package:get/get.dart' as Get;
+import 'package:mesa_news_app/app_controller.dart';
 import 'package:mesa_news_app/constants/requester_api/model.dart';
 
 const internalServerErrorCode = 500;
 
 
 const String errorDefaultMessage = "Ocorreu um problema, entre em contato conosco";
-// typedef ResponseFunction = Future<Response> Function();
+
 
 class RequesterAPI{
+  AppController _appController = Get.Get.put(AppController());
+
   Dio dio = Dio(
     BaseOptions(
       baseUrl: "https://mesa-news-api.herokuapp.com/",
@@ -16,14 +20,27 @@ class RequesterAPI{
       responseType: ResponseType.json,
     )
   );
+
+  Options getOptions(){
+    Options op;
+    if(_appController.isLogged){
+      op = Options(
+        headers : {
+          "Content-Type" : "application/json",
+          "Authorization" : "Bearer ${_appController.token}",
+        }
+      );
+    }
+    return op;
+  }
   
-  Future<dynamic> getData(String url,{Map<String,dynamic>urlParams}) async{
-    return await _request(dio.get(url,queryParameters: urlParams));
+  Future<RequesterResponse> getData(String url,{Map<String,dynamic>urlParams}) async{
+    return await _request(dio.get(url,queryParameters: urlParams,options: getOptions()));
 
   }
 
   Future<dynamic> postData(String url,Map<String,dynamic>body,{Map<String,dynamic> urlParams}) async {
-    return await _request(dio.post(url,data: body));
+    return await _request(dio.post(url,data: body,options: getOptions()));
   }
 
   Future _request(Future<Response> function) async{
