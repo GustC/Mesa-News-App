@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:mesa_news_app/app_controller.dart';
 import 'package:mesa_news_app/constants/colors.dart';
 import 'package:mesa_news_app/routes.dart';
 import 'package:mesa_news_app/screens/wellcome/wellcome_page.dart';
@@ -10,6 +11,7 @@ class MesaNewsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppController _appController = Get.put(AppController());
     return GetMaterialApp(
       title: 'Mesa News',
       themeMode: ThemeMode.dark,
@@ -26,7 +28,7 @@ class MesaNewsApp extends StatelessWidget {
             fontSize: 22,
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontFamily: "Roboto21e"
+            fontFamily: "Roboto"
           ),     
         ),
       ),
@@ -34,6 +36,17 @@ class MesaNewsApp extends StatelessWidget {
       home: WellcomePage(),
       initialRoute: "wellcome/",
       routes: appRoutes,
+      builder: (ctx,w){        
+        return GetBuilder(
+          init: _appController,
+          initState: (_){            
+            _appController.checkUser();
+          },
+          builder: (controller){
+            return w; 
+          },
+        );
+      },
     );
   }
 }
