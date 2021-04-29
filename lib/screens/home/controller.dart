@@ -76,4 +76,8 @@ class HomePageController extends GetxController{
     return news.length == _pagination.value.totalItems;
   }
 
+  changeHighlight(News news){
+    news.highlight = !news.highlight;
+    refresh();
+  }
 }

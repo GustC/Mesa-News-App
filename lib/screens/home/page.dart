@@ -113,9 +113,13 @@ class HomePage extends StatelessWidget {
             margin: EdgeInsets.symmetric(vertical: 10),
             child: Row(
               children: [
-                SvgPicture.asset(
-                  "assets/icons/bookmark.svg",
-                  height: 28,
+                GestureDetector(
+                  onTap: ()=>_controller.changeHighlight(news),
+                  child: SvgPicture.asset(
+                    "assets/icons/bookmark.svg",
+                    height: 28,
+                    color: news.highlight ? primaryColor : null 
+                  ),
                 ),
                 Spacer(),
                 Text(
