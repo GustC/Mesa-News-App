@@ -30,6 +30,7 @@ class AppController extends GetxController{
     _token.value = prefs.getString(_keyUser);
     if(_token.value != null && _token.value.isNotEmpty){
       _isLogged.value = true;
+      Get.offAllNamed("home/");
     }
     refresh();
   }
