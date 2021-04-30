@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mesa_news_app/public/colors.dart';
 
 class GenericFormInput extends StatelessWidget {
+  String keyValue;
   String initialValue;
   String title;
   Function(String) validator;
@@ -9,6 +10,7 @@ class GenericFormInput extends StatelessWidget {
   Function(String) onChange;
 
   GenericFormInput({
+    this.keyValue,
     this.initialValue = "",
     this.title = "title",
     this.validator, 
@@ -36,13 +38,14 @@ class GenericFormInput extends StatelessWidget {
             ),
           ),
           TextFormField(
+            key: Key(this.keyValue),
             initialValue: this.initialValue,
             validator: this.validator,
             onChanged: this.onChange,
             obscureText: this.obscureText,
             decoration: InputDecoration(
               filled: true,
-              fillColor: inputFillColor,
+              fillColor: inputFillColor,                            
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(5),
                 borderSide: BorderSide.none

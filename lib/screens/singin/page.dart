@@ -18,6 +18,7 @@ class SinginPage extends StatelessWidget {
           "Entrar com e-mail",          
         ),
         leading: Obx(()=>IconButton(
+          key: Key("signinBackButton"),
           icon: Icon(Icons.close),
           color: Colors.white, 
           onPressed: _controller.inRequest ? null : ()=>Get.back(),
@@ -48,6 +49,7 @@ class SinginPage extends StatelessWidget {
                       child: Column(
                         children: [
                           GenericFormInput(
+                            keyValue: "emailInput",
                             title: "E-mail",
                             initialValue: _controller.email,
                             onChange: _controller.changeEmail,
@@ -60,9 +62,11 @@ class SinginPage extends StatelessWidget {
                           ),
                           SizedBox(height: 20,),
                           GenericFormInput(
+                            keyValue: "passwordInput",
                             title: "Senha",
                             initialValue: _controller.password,
                             onChange: _controller.changePassword,
+                            obscureText: true,
                             validator: (email){
                               if(email.isEmpty){
                                 return "Digite sua senha!"; 
@@ -74,6 +78,7 @@ class SinginPage extends StatelessWidget {
                             width: double.maxFinite,
                             margin: EdgeInsets.symmetric(horizontal: 16,vertical: 25),
                             child: OutlinedButton(
+                              key: Key("signinSubmitButton"),
                               onPressed: _controller.inRequest ? null : (){
                                 if(_formKey.currentState.validate()){
                                   _controller.submit();

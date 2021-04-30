@@ -42,6 +42,7 @@ class WellcomePage extends StatelessWidget {
                       children: [
                         Expanded(
                           child: OutlinedButton(
+                            key: Key("buttonSingin"),
                             onPressed: (){
                               Get.toNamed("singin/");
                             },                      
