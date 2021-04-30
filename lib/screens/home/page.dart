@@ -104,7 +104,7 @@ class HomePage extends StatelessWidget {
     publishedText += " atrás"; 
     return GestureDetector(
       onTap: (){
-        Get.to(NewsViewPage(news));
+        Get.toNamed("home/news/",arguments: news);
       },
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 16),

@@ -2,23 +2,23 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:mesa_news_app/screens/home/models/model.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class NewsViewPage extends StatefulWidget {
-  News news;
-  NewsViewPage(this.news);
   @override
-  _NewsViewPageState createState() => _NewsViewPageState(this.news);
+  _NewsViewPageState createState() => _NewsViewPageState();
 }
 
 class _NewsViewPageState extends State<NewsViewPage> {
   News news;
-  _NewsViewPageState(this.news);
+
   @override
   void initState() {    
     super.initState();
     if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
+    news = Get.arguments;
   }
 
   @override
@@ -34,7 +34,7 @@ class _NewsViewPageState extends State<NewsViewPage> {
               ),
             ),
             Text(
-              "mesanews.com.br",
+              this.news.url,
               style: TextStyle(
                 fontSize: 12,
               ),
