@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:mesa_news_app/app_controller.dart';
-import 'package:mesa_news_app/constants/colors.dart';
+import 'package:mesa_news_app/public/colors.dart';
 import 'package:mesa_news_app/routes.dart';
 import 'package:mesa_news_app/screens/wellcome/wellcome_page.dart';
 

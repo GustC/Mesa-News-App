@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mesa_news_app/app_controller.dart';
-import 'package:mesa_news_app/constants/colors.dart';
+import 'package:mesa_news_app/public/colors.dart';
 
 class WellcomePage extends StatelessWidget {
   AppController _appController = Get.put(AppController());

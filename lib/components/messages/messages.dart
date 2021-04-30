@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mesa_news_app/constants/requester_api/requester_api.dart';
+import 'package:mesa_news_app/public/requester_api/requester_api.dart';
 
 class Messages{
   static success(String title,String info){

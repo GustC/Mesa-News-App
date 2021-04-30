@@ -1,5 +1,5 @@
-import 'package:mesa_news_app/constants/requester_api/model.dart';
-import 'package:mesa_news_app/constants/requester_api/requester_api.dart';
+import 'package:mesa_news_app/public/requester_api/model.dart';
+import 'package:mesa_news_app/public/requester_api/requester_api.dart';
 
 class SinginRepository {
   

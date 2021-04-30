@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mesa_news_app/app.dart';
-import 'package:mesa_news_app/constants/colors.dart';
+import 'package:mesa_news_app/public/colors.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(

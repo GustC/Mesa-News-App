@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:mesa_news_app/app_controller.dart';
 import 'package:mesa_news_app/components/messages/messages.dart';
-import 'package:mesa_news_app/constants/requester_api/model.dart';
+import 'package:mesa_news_app/public/requester_api/model.dart';
 import 'package:mesa_news_app/screens/singin/models/singin_response.dart';
 import 'package:mesa_news_app/screens/singin/repository.dart';
 

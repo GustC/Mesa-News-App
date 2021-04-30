@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mesa_news_app/components/inputs/form_input.dart';
-import 'package:mesa_news_app/constants/colors.dart';
+import 'package:mesa_news_app/public/colors.dart';
 import 'package:mesa_news_app/screens/singin/controller.dart';
 
 class SinginPage extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:mesa_news_app/components/messages/messages.dart';
-import 'package:mesa_news_app/constants/models/pagination.dart';
-import 'package:mesa_news_app/constants/requester_api/model.dart';
-import 'package:mesa_news_app/constants/requester_api/requester_api.dart';
+import 'package:mesa_news_app/public/models/pagination.dart';
+import 'package:mesa_news_app/public/requester_api/model.dart';
+import 'package:mesa_news_app/public/requester_api/requester_api.dart';
 import 'package:mesa_news_app/screens/home/models/model.dart';
 import 'package:mesa_news_app/screens/home/models/response_home_list.dart';
 import 'package:mesa_news_app/screens/home/repository.dart';

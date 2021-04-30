@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' as Get;
 import 'package:mesa_news_app/app_controller.dart';
-import 'package:mesa_news_app/constants/requester_api/model.dart';
+import 'package:mesa_news_app/public/requester_api/model.dart';
 
 const internalServerErrorCode = 500;
 

@@ -1,4 +1,4 @@
-import 'package:mesa_news_app/constants/models/pagination.dart';
+import 'package:mesa_news_app/public/models/pagination.dart';
 import 'package:mesa_news_app/screens/home/models/model.dart';
 
 class ResponseHomeList{
