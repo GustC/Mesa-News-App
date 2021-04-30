@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:mesa_news_app/components/messages/messages.dart';
 import 'package:mesa_news_app/constants/models/pagination.dart';
 import 'package:mesa_news_app/constants/requester_api/model.dart';
 import 'package:mesa_news_app/constants/requester_api/requester_api.dart';
@@ -15,9 +16,11 @@ class HomePageController extends GetxController{
   RxList<News> _news = RxList<News>();
   RxBool _loading = true.obs;
   RxBool _gettingMore = false.obs;
+  RxBool _error = false.obs;
 
   bool get loading => _loading.value;
   bool get gettingMore => _gettingMore.value;
+  bool get error => _error.value;
   List<News> get news => _news;
 
   getNews() async {
@@ -35,11 +38,14 @@ class HomePageController extends GetxController{
         refresh();
       } else {
         ResponseDataError error = response.data;
-        print(error.message);
+        Messages.error(info: error.message);
+        _error.value = true;
       }
     } catch (err,stack){
       print(err);
       print(errorDefaultMessage);
+      Messages.error(info: errorDefaultMessage);
+      _error.value = true;
     }
     _loading.value = false;
     refresh();

@@ -4,11 +4,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:mesa_news_app/constants/colors.dart';
+import 'package:mesa_news_app/constants/requester_api/requester_api.dart';
 import 'package:mesa_news_app/screens/home/controller.dart';
 import 'package:mesa_news_app/screens/home/models/model.dart';
 import 'package:mesa_news_app/screens/home/news_view/page.dart';
 
 class HomePage extends StatelessWidget {
+  static DateTime dateNow = DateTime.now();
   Size deviceSize;
   HomePageController _controller = Get.put(HomePageController());
   @override
@@ -33,6 +35,9 @@ class HomePage extends StatelessWidget {
             return Center(
               child: CircularProgressIndicator(),
             );
+          }
+          if(_controller.error){
+            return renderError();
           }
           return renderListNews();
         }
@@ -82,8 +87,6 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-
-  static DateTime dateNow = DateTime.now();
 
   Widget renderTileNews(News news){
     var date = DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").parse(news.publishedAt);
@@ -192,4 +195,35 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
+  Widget renderError(){
+    return Center(
+      child: Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 20,
+        ),
+        child: Column(
+          children: [
+            SvgPicture.asset(
+              "assets/images/fixing_bugs.svg",
+              height: deviceSize.height*0.4,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 15),
+              child: Text(
+                errorDefaultMessage,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
 }
